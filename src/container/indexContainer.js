@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addList } from '../action/listAction';
-import Index from '../index';
+import Index from '../page/homepage';
 
 const mapStateToProps = state => (
   {
