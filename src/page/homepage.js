@@ -3,7 +3,7 @@
 import React, {Fragment} from 'react';
 
 //css
-require('./css/index.css');
+require('../css/homepage.css');
 
 type Props = {
 	list: Array<string>,
