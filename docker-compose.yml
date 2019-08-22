@@ -8,3 +8,4 @@ services:
     volumes:
       - .:/usr/local/app:cached
       - /usr/local/app/node_modules
+      - ./package.json:/usr/local/app/package-lock.json
