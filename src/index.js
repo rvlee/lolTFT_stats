@@ -34,7 +34,7 @@ class Index extends React.Component<Props, State> {
 			<Fragment>
 				<div className="main">Index</div>
 				<input value={val} onChange={this.onInputChange}/>
-				<button onClick={this.onAddItem}>Add Item</button>
+				<button onClick={this.onAddItem}>Add Items</button>
 				<ul>
 				{
 					list.map((item, index) => {
