@@ -1,0 +1,8 @@
+.item-page {
+  text-align: center;
+}
+
+.item {
+  display: inline-block;
+  margin: 10px;
+}

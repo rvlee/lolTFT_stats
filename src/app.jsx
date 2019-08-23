@@ -7,7 +7,7 @@ import {
 } from 'react-redux';
 import Base from './page/base';
 import HomePage from './container/homepageContainer';
-import ItemPage from './page/itemPage';
+import ItemPage from './container/itemPageContainer';
 import store from './store/store';
 
 
