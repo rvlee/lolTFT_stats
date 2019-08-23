@@ -40,15 +40,13 @@ module.exports = {
     ],
     "react/state-in-constructor": [0],
     "indent": [
-      2,
-      2,
-      {
-        "SwitchCase": 1
-      }
+        "error", 2
     ],
     "no-tabs": 0,
     "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
     "react/destructuring-assignment": [0],
-    "react/jsx-indent": [0]
+    "react/jsx-indent": [0],
+    "react/no-array-index-key": [0],
+    "class-methods-use-this": 0
   },
 };

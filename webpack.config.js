@@ -1,13 +1,13 @@
 // This file configures webpack to run on the production files
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   cache: true,
-  entry: './src/app.js',
+  entry: './src/app.jsx',
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '',
@@ -21,11 +21,11 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ['env', 'react', 'stage-2'],
-        }
+        },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
+        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -38,11 +38,15 @@ module.exports = {
       inject: true,
       hash: true,
       template: './src/index.html',
-      filename: 'index.html'
-    })
+      filename: 'index.html',
+    }),
   ],
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new TerserJSPlugin({
+
+    }), new OptimizeCSSAssetsPlugin({
+
+    })],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],

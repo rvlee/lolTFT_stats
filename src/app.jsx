@@ -5,12 +5,15 @@ import ReactDOM from 'react-dom';
 import {
   Provider,
 } from 'react-redux';
-import Index from './container/indexContainer';
+import Base from './page/base';
+import HomePage from './container/homepageContainer';
+import ItemPage from './page/itemPage';
 import store from './store/store';
+
 
 const {
   browserHistory,
-  // IndexRoute,
+  IndexRoute,
   Route,
   Router,
 } = require('react-router');
@@ -22,7 +25,10 @@ class App extends React.Component<Props> {
     return (
       <Provider store={store}>
         <Router history={browserHistory}>
-          <Route path="/" component={Index} />
+          <Route path="/" component={Base}>
+            <IndexRoute component={HomePage} />
+            <Route path="item" component={ItemPage} />
+          </Route>
         </Router>
       </Provider>
     );
