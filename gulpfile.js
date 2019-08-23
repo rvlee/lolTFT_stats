@@ -1,23 +1,23 @@
 const gulp = require('gulp');
 const del = require('del');
 
-gulp.task('copy', function(done) {
+gulp.task('copy', (done) => {
   const folders = [
     ['src/lib/**/*'],
     ['src/**/*.png', 'src/**/*.jpg'],
   ];
-  const dist = ['./dist/','./dist/lib/','./dist/']
+  const dist = ['./dist/', './dist/lib/', './dist/'];
 
-  folders.forEach(function(folder,index) {
-    folder.forEach(function(file) {
+  folders.forEach((folder, index) => {
+    folder.forEach((file) => {
       gulp.src(file)
-          .pipe(gulp.dest(dist[index]));
-    })
-  })
+        .pipe(gulp.dest(dist[index]));
+    });
+  });
   done();
 });
 
-gulp.task('clean', function(done) {
+gulp.task('clean', (done) => {
   del.sync([
     './dist/**',
   ]);
