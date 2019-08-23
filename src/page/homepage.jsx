@@ -1,11 +1,12 @@
 /* @flow */
 
 import React from 'react';
+import api from '../config/api';
 
 // css
 require('../css/homepage.css');
 
-type Props = { list: Array<string>, addList: (item: string) => void };
+type Props = { user: any, addUser: (user: any) => void };
 
 type State = { val: string }
 
@@ -14,8 +15,16 @@ class Index extends React.Component<Props, State> {
     val: '',
   }
 
-  onAddItem = () => {
-    this.props.addList(this.state.val);
+  onSearch = () => {
+    const {
+      val,
+    } = this.state;
+    fetch(`${api.domain}?username=${val}`, {
+      mode: 'cors',
+      method: 'GET',
+    }).then((response) => response.json()).then((data) => {
+      this.props.addUser(data);
+    });
   }
 
   onInputChange = (event: any) => {
@@ -29,19 +38,14 @@ class Index extends React.Component<Props, State> {
       val,
     } = this.state;
     const {
-      list,
+      user,
     } = this.props;
-
     return (
       <div>
         <div className="main">Index</div>
         <input value={val} onChange={this.onInputChange} />
-        <button type="button" onClick={this.onAddItem}>Add Items</button>
-        <ul>
-          {
-            list.map((item, index) => (<li key={`item-${index}`}>{item}</li>))
-          }
-        </ul>
+        <button type="button" onClick={this.onSearch}>Search</button>
+        <div>{JSON.stringify(user)}</div>
       </div>
     );
   }
