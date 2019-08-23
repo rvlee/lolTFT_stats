@@ -5,19 +5,19 @@ import {
   bindActionCreators,
 } from 'redux';
 import {
-  addList,
-} from '../action/listAction';
+  addUser,
+} from '../action/userAction';
 import Index from '../page/homepage';
 
 const mapStateToProps = (state) => (
   {
-    list: state.list.items,
+    user: state.user.info,
   }
 );
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    addList,
+    addUser,
   }, dispatch)
 );
 
