@@ -49,4 +49,10 @@ module.exports = {
     "react/no-array-index-key": [0],
     "class-methods-use-this": 0
   },
+  "globals": {
+    "jest": true,
+    "expect": true,
+    "describe": true,
+    "it": true,
+  }
 };

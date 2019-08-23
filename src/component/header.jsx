@@ -7,9 +7,9 @@ const {
 // css
 require('../css/header.css');
 
+// eslint-disable-next-line no-unused-vars
 const header = (props: any) => (
   <div className="header">
-    Header
     <Link to="/">HOME</Link>
     <Link to="/item">ITEM</Link>
   </div>
