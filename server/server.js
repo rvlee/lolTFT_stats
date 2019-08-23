@@ -21,10 +21,6 @@ app.use((req, res, next) => {
 // Router for Server
 app.use('/user', user);
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../dist/index.html'));
-// });
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
