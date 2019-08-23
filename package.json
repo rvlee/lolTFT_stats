@@ -5,7 +5,8 @@
     "start-dev": "nodemon server/server.js",
     "build": "gulp build && webpack -p --config webpack.config.js --progress --profile --colors",
     "dev": "nf start",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "eslint --ext .js --ext .jsx --fix ."
   },
   "dependencies": {
     "body-parser": "^1.14.0",
@@ -57,7 +58,7 @@
       "pre-commit": [
         "lint-staged"
       ],
-      "pre-push": "npm test"
+      "pre-push": "npm run eslint && npm test"
     }
   },
   "lint-staged": {

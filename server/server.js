@@ -7,15 +7,15 @@ const PORT = 3000;
 
 app.use(parser.json());
 
-app.use(express.static(path.join(__dirname, '../dist')))
+app.use(express.static(path.join(__dirname, '../dist')));
 
 
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../dist/index.html'))
-})
-//Router for Server
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+// Router for Server
 
 
 app.listen(PORT, () => {
-  console.log("Listening to port: ", PORT)
-})
+  console.log('Listening to port: ', PORT);
+});

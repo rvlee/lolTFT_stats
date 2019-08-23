@@ -1,18 +1,20 @@
-import {ADD_LIST} from '../action/listAction';
+import {
+  ADD_LIST,
+} from '../action/listAction';
 
 const intialState = {
-  items: []
-}
+  items: [],
+};
 
 const list = (state = intialState, action) => {
   switch (action.type) {
-    case ADD_LIST:
-      return {
-        items: [...state.items, action.item]
-      }
-    default:
-      return state
+  case ADD_LIST:
+    return {
+      items: [...state.items, action.item],
+    };
+  default:
+    return state;
   }
-}
+};
 
-export default list
+export default list;
