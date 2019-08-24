@@ -5,4 +5,10 @@
 .item {
   display: inline-block;
   margin: 10px;
+  transition: transform .2s;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: scale(1.1);
 }
