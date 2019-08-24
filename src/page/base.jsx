@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from '../component/header';
 // css
-require('../css/homepage.css');
+require('../css/base.css');
 
 type Props = {
   children: any
@@ -18,7 +18,11 @@ class Base extends React.Component<Props> {
     return (
       <div>
         <Header />
-        {children}
+        <div className="background-container">
+          <img className="background-image" alt="map" src="http://localhost:3000/item/map_default.jpg" />
+          <div className="background-map" />
+        </div>
+        <div className="content-container">{children}</div>
       </div>
     );
   }

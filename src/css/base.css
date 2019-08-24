@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+.background-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.background-image {
+  position: absolute;
+  top: 0px;
+  pointer-events: none;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.background-map {
+  position: absolute;
+  top: 0px;
+  pointer-events: none;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgba(19, 28, 46, 0.8) 0%, rgb(19, 28, 46) 620px), radial-gradient(at center top, rgba(19, 28, 46, 0) 60%, rgb(19, 28, 46) 80%);
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+}
