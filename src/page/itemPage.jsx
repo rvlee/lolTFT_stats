@@ -61,10 +61,12 @@ class ItemPage extends React.Component<Props, State> {
   renderCombinationList = (comboList) => comboList.map((combId) => {
     const combinedItem = items[combId];
     return (
-      <img
-        alt={combinedItem.logo.alt}
-        src={combinedItem.logo.src}
-      />
+      <div className="item">
+        <img
+          alt={combinedItem.logo.alt}
+          src={combinedItem.logo.src}
+        />
+      </div>
     );
   })
 
@@ -108,11 +110,34 @@ class ItemPage extends React.Component<Props, State> {
 
     return (
       <div className="item-page">
-        <h1>This is the Item Page</h1>
-        <div className="item-container">{list}</div>
-        <div className="item-selected-container">{selectedList}</div>
-        <div>{this.renderCombinationList(duplicate)}</div>
-        <div>{this.renderCombinationList(nonDuplicate)}</div>
+        <div className="item-container">
+          <div className="base-items-title">Base Items</div>
+          <div className="base-items">{list}</div>
+        </div>
+        <div className="item-selected-container">
+          <div className="selected-items-wrapper">
+            <div className="selected-items-title">Selected Items</div>
+            <div className="selected-items">{selectedList}</div>
+          </div>
+          {
+            duplicate.length !== 0
+              ? (
+                <div className="can-build-items-wrapper">
+                  <div className="can-build-items-title">Can Build Items</div>
+                  <div className="can-build-items">{this.renderCombinationList(duplicate)}</div>
+                </div>
+              ) : null
+          }
+          {
+            nonDuplicate.length !== 0
+              ? (
+                <div className="could-build-items-wrapper">
+                  <div className="could-build-items-title">Could Build Items</div>
+                  <div className="could-build-items">{this.renderCombinationList(nonDuplicate)}</div>
+                </div>
+              ) : null
+          }
+        </div>
       </div>
     );
   }
