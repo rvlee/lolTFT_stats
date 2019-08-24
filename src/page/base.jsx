@@ -14,7 +14,6 @@ class Base extends React.Component<Props> {
     const {
       children,
     } = this.props;
-
     return (
       <div>
         <Header />
