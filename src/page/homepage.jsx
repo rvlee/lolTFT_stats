@@ -19,7 +19,7 @@ class Index extends React.Component<Props, State> {
     const {
       val,
     } = this.state;
-    fetch(`${api.domain}?username=${val}`, {
+    fetch(`${api.domain}user?username=${val}`, {
       mode: 'cors',
       method: 'GET',
     }).then((response) => response.json()).then((data) => {
