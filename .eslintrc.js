@@ -47,7 +47,9 @@ module.exports = {
     "react/destructuring-assignment": [0],
     "react/jsx-indent": [0],
     "react/no-array-index-key": [0],
-    "class-methods-use-this": 0
+    "class-methods-use-this": 0,
+    "jsx-a11y/click-events-have-key-events": [0],
+    "jsx-a11y/no-noninteractive-element-interactions": [0]
   },
   "globals": {
     "jest": true,
