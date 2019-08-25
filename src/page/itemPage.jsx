@@ -15,7 +15,9 @@ import {
 import {
   parse,
 } from '../utils/utils';
-
+import {
+  CHOOSE_BASE,
+} from '../constants/constants';
 // css
 require('../css/itemPage.css');
 
@@ -95,9 +97,13 @@ class ItemPage extends React.Component<Props, State> {
     const list = Object.keys(itemList).map((key, index) => {
       const item = itemList[key];
       return (
-        <div className="item" key={`base-items-${index}`}>
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div
+          className="item"
+          key={`base-items-${index}`}
+          onClick={this.onSelectItem.bind(this, item)}
+        >
           <img
-            onClick={this.onSelectItem.bind(this, item)}
             alt={item.logo.alt}
             src={item.logo.src}
           />
@@ -107,9 +113,13 @@ class ItemPage extends React.Component<Props, State> {
     });
 
     const selectedList = selected.map((item, index) => (
-      <div className="item" key={`selected-${index}`}>
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+      <div
+        className="item"
+        key={`selected-${index}`}
+        onClick={this.onRemoveItem.bind(this, index)}
+      >
         <img
-          onClick={this.onRemoveItem.bind(this, index)}
           alt={item.logo.alt}
           src={item.logo.src}
         />
@@ -128,6 +138,10 @@ class ItemPage extends React.Component<Props, State> {
           <div className="base-items">{list}</div>
         </div>
         <div className="item-selected-container">
+          {
+            selectedList.length === 0
+              ? (<div className="item-page-message">{CHOOSE_BASE}</div>) : null
+          }
           {
             selectedList.length !== 0
               ? (
