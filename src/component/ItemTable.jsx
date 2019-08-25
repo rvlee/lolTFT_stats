@@ -17,13 +17,13 @@ const ItemTable = (props: any) => {
     items,
   } = props;
   const headerComponent = tableConfig.map((config) => (
-    <TableCell>{config.header}</TableCell>
+    <TableCell key={`header-${config.header}`}>{config.header}</TableCell>
   ));
-  const list = items.map((item) => (
-    <TableRow>
+  const list = items.map((item, indx) => (
+    <TableRow key={`row-${indx}`}>
       {
-        tableConfig.map((config) => (
-          <TableCell>
+        tableConfig.map((config, index) => (
+          <TableCell key={`${item.id}${index}`}>
             <TableFactory
               item={item}
               config={config}
