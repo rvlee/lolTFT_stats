@@ -15,7 +15,9 @@ import {
 import {
   parse,
 } from '../utils/utils';
-
+import {
+  CHOOSE_BASE,
+} from '../constants/constants';
 // css
 require('../css/itemPage.css');
 
@@ -136,6 +138,10 @@ class ItemPage extends React.Component<Props, State> {
           <div className="base-items">{list}</div>
         </div>
         <div className="item-selected-container">
+          {
+            selectedList.length === 0
+              ? (<div className="item-page-message">{CHOOSE_BASE}</div>) : null
+          }
           {
             selectedList.length !== 0
               ? (
