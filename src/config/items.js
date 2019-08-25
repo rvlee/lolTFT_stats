@@ -1,3 +1,8 @@
+let url = '';
+if (process.env.NODE_ENV !== 'production') {
+  url = 'http://localhost:3000';
+}
+
 export const baseItem = {
   1: {
     id: 1,
@@ -5,7 +10,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'bf sword',
-      src: 'http://localhost:3000/item/bfsword.png',
+      src: `${url}/item/bfsword.png`,
     },
     combinations: [9, 10, 11, 12, 13, 14, 15, 16],
   },
@@ -15,7 +20,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'chain vest',
-      src: 'http://localhost:3000/item/chainvest.png',
+      src: `${url}/item/chainvest.png`,
     },
     combinations: [10],
   },
@@ -25,7 +30,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'giants belt',
-      src: 'http://localhost:3000/item/giantsbelt.png',
+      src: `${url}/item/giantsbelt.png`,
     },
     combinations: [15],
   },
@@ -35,7 +40,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'needlessly large rod',
-      src: 'http://localhost:3000/item/needlesslylargerod.png',
+      src: `${url}/item/needlesslylargerod.png`,
     },
     combinations: [11],
   },
@@ -45,7 +50,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'negatron cloak',
-      src: 'http://localhost:3000/item/negatroncloak.png',
+      src: `${url}/item/negatroncloak.png`,
     },
     combinations: [9],
   },
@@ -55,7 +60,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'recursive bow',
-      src: 'http://localhost:3000/item/recursivebow.png',
+      src: `${url}/item/recursivebow.png`,
     },
     combinations: [14],
   },
@@ -65,7 +70,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'spatula',
-      src: 'http://localhost:3000/item/spatula.png',
+      src: `${url}/item/spatula.png`,
     },
     combinations: [16],
   },
@@ -75,7 +80,7 @@ export const baseItem = {
     description: 'Desc',
     logo: {
       alt: 'tear of the goddess',
-      src: 'http://localhost:3000/item/tearofthegoddess.png',
+      src: `${url}/item/tearofthegoddess.png`,
     },
     combinations: [13],
   },
@@ -89,7 +94,7 @@ export const items = {
     description: 'Attacks heal for 50% of damage.',
     logo: {
       alt: 'blood thirster',
-      src: 'http://localhost:3000/item/bloodthirster.png',
+      src: `${url}/item/bloodthirster.png`,
     },
     base: [1, 5],
   },
@@ -99,7 +104,7 @@ export const items = {
     description: 'Wearer revives with 1000 Health after 2 second delay.',
     logo: {
       alt: 'guardian angel',
-      src: 'http://localhost:3000/item/guardianangel.png',
+      src: `${url}/item/guardianangel.png`,
     },
     base: [1, 2],
   },
@@ -109,7 +114,7 @@ export const items = {
     description: 'Heal for 25% of all damage dealt.',
     logo: {
       alt: 'hextech gunblade',
-      src: 'http://localhost:3000/item/hextechgunblade.png',
+      src: `${url}/item/hextechgunblade.png`,
     },
     base: [1, 4],
   },
@@ -119,7 +124,7 @@ export const items = {
     description: 'Critical Strikes deal +100% damage.',
     logo: {
       alt: 'infinity edge',
-      src: 'http://localhost:3000/item/infinityedge.png',
+      src: `${url}/item/infinityedge.png`,
     },
     base: [1, 1],
   },
@@ -129,7 +134,7 @@ export const items = {
     description: 'After casting, wearer gains 20% of its max mana per attack.',
     logo: {
       alt: 'spear of shojin',
-      src: 'http://localhost:3000/item/spearofshojin.png',
+      src: `${url}/item/spearofshojin.png`,
     },
     base: [1, 8],
   },
@@ -139,7 +144,7 @@ export const items = {
     description: 'Each second, the wearer has a 5% chance to gain 100% Critical Strike.',
     logo: {
       alt: 'sword of the divine',
-      src: 'http://localhost:3000/item/swordofthedivine.png',
+      src: `${url}/item/swordofthedivine.png`,
     },
     base: [1, 6],
   },
@@ -149,7 +154,7 @@ export const items = {
     description: 'Adjacent allies gain +12.5% Attack Speed.',
     logo: {
       alt: 'zekes herald',
-      src: 'http://localhost:3000/item/zekesherald.png',
+      src: `${url}/item/zekesherald.png`,
     },
     base: [1, 3],
   },
@@ -159,7 +164,7 @@ export const items = {
     description: 'Wearer is also an Assassin.',
     logo: {
       alt: 'youmuus ghostblade',
-      src: 'http://localhost:3000/item/youmuusghostblade.png',
+      src: `${url}/item/youmuusghostblade.png`,
     },
     base: [1, 7],
   },

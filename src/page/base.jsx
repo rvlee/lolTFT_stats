@@ -2,6 +2,11 @@
 
 import React from 'react';
 import Header from '../component/header';
+
+import {
+  backgroundUrl,
+} from '../config/assest';
+
 // css
 require('../css/base.css');
 
@@ -18,7 +23,7 @@ class Base extends React.Component<Props> {
       <div>
         <Header />
         <div className="background-container">
-          <img className="background-image" alt="map" src="http://localhost:3000/item/map_default3.jpg" />
+          <img className="background-image" alt="map" src={backgroundUrl} />
           <div className="background-map" />
         </div>
         <div className="content-container">{children}</div>

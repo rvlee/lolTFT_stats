@@ -1,5 +1,14 @@
 const request = require('request');
-const apiKey = require('../../secret-config');
+
+let apiKey;
+if (process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line global-require
+  apiKey = require('../../secret-config');
+} else {
+  apiKey = {
+    riot_secret_key: 'prod',
+  };
+}
 
 const baseUrl = 'https://na1.api.riotgames.com/lol/';
 
