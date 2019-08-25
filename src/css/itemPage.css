@@ -126,8 +126,14 @@
     width: 25%;
   }
 
-  div.base-items, div.selected-items, div.can-build-items, div.could-build-items {
+  div.base-items, div.selected-items {
     padding: 10px;
+  }
+
+  div.can-build-items, div.could-build-items {
+    padding: 0px;
+    overflow-y: hidden;
+    overflow-x: scroll;
   }
 
   .base-items-title, .selected-items-title, .can-build-items-title, .could-build-items-title {

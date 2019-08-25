@@ -95,9 +95,13 @@ class ItemPage extends React.Component<Props, State> {
     const list = Object.keys(itemList).map((key, index) => {
       const item = itemList[key];
       return (
-        <div className="item" key={`base-items-${index}`}>
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div
+          className="item"
+          key={`base-items-${index}`}
+          onClick={this.onSelectItem.bind(this, item)}
+        >
           <img
-            onClick={this.onSelectItem.bind(this, item)}
             alt={item.logo.alt}
             src={item.logo.src}
           />
@@ -107,9 +111,13 @@ class ItemPage extends React.Component<Props, State> {
     });
 
     const selectedList = selected.map((item, index) => (
-      <div className="item" key={`selected-${index}`}>
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+      <div
+        className="item"
+        key={`selected-${index}`}
+        onClick={this.onRemoveItem.bind(this, index)}
+      >
         <img
-          onClick={this.onRemoveItem.bind(this, index)}
           alt={item.logo.alt}
           src={item.logo.src}
         />
