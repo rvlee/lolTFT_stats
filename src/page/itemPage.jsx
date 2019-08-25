@@ -80,14 +80,6 @@ class ItemPage extends React.Component<Props, State> {
   renderCombinationList = (comboList) => comboList.map((combId) => {
     const combinedItem = items[combId];
     return combinedItem;
-    // return (
-    //   <div className="item">
-    //     <img
-    //       alt={combinedItem.logo.alt}
-    //       src={combinedItem.logo.src}
-    //     />
-    //   </div>
-    // );
   })
 
   render() {
@@ -100,10 +92,10 @@ class ItemPage extends React.Component<Props, State> {
       combinations,
     } = this.state;
 
-    const list = Object.keys(itemList).map((key) => {
+    const list = Object.keys(itemList).map((key, index) => {
       const item = itemList[key];
       return (
-        <div className="item">
+        <div className="item" key={`base-items-${index}`}>
           <img
             onClick={this.onSelectItem.bind(this, item)}
             alt={item.logo.alt}
@@ -115,7 +107,7 @@ class ItemPage extends React.Component<Props, State> {
     });
 
     const selectedList = selected.map((item, index) => (
-      <div className="item">
+      <div className="item" key={`selected-${index}`}>
         <img
           onClick={this.onRemoveItem.bind(this, index)}
           alt={item.logo.alt}
