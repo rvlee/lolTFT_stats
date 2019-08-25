@@ -5,7 +5,9 @@ const parser = require('body-parser');
 const user = require('./router/user');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const {
+  PORT,
+} = process.env;
 
 app.use(parser.json());
 
