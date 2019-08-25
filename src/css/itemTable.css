@@ -1,0 +1,16 @@
+.table-wrapper {
+  width: 100%;
+}
+
+.table-header, .table-body {
+  background-color: #0d202b;
+}
+
+.table-header th, .table-body td {
+  color: white;
+}
+
+.table-img {
+  width: 35px;
+  height: 35px;
+}
