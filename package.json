@@ -2,7 +2,7 @@
   "name": "lolTFT_stats",
   "scripts": {
     "start": "node server/server.js",
-    "start-dev": "nodemon server/server.js",
+    "start-dev": "PORT=3000 && nodemon server/server.js",
     "build": "webpack -p --config webpack.config.js --progress --profile --colors",
     "dev": "nf start",
     "test": "jest",
