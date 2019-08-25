@@ -1,7 +1,5 @@
 const express = require('express');
-const request = require('request');
-
-const apiKey = require('../../secret-config');
+const serverUtils = require('../utils/serverUtils');
 
 const router = express.Router();
 
@@ -9,11 +7,24 @@ router.get('/', (req, res) => {
   const {
     username,
   } = req.query;
-  request(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=${apiKey.riot_secret_key}`, (error, response, body) => {
-    const userInfo = JSON.parse(body);
-    request(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${userInfo.id}?api_key=${apiKey.riot_secret_key}`, (err, resp, data) => {
-      res.send(data);
-    });
+  serverUtils.getRequest(null, {
+    secret_key: true,
+    riotUrl: serverUtils.getRiotUrls.SUMMONER_URL(username),
+  }, (error, data) => {
+    if (!error) {
+      const userInfo = JSON.parse(data);
+      serverUtils.getRequest(null, {
+        secret_key: true,
+        riotUrl: serverUtils.getRiotUrls.SUMMONER_INFO_URL(userInfo.id),
+      }, (err, data2) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(data2);
+        }
+      });
+    }
   });
 });
+
 module.exports = router;
