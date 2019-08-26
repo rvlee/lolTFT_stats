@@ -1,13 +1,12 @@
 const express = require('express');
 const path = require('path');
 const parser = require('body-parser');
-
 const user = require('./router/user');
+const item = require('./router/item');
+const connectDb = require('../db/db');
 
 const app = express();
-const {
-  PORT,
-} = process.env;
+const PORT = process.env.PORT || 3000;
 
 app.use(parser.json());
 
@@ -21,12 +20,15 @@ app.use((req, res, next) => {
 });
 
 // Router for Server
-app.use('/user', user);
+app.use('/api/user', user);
+app.use('/api/item', item);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log('Listening to port: ', PORT);
+connectDb().then(() => {
+  app.listen(PORT, () => {
+    console.log('Listening to port: ', PORT);
+  });
 });

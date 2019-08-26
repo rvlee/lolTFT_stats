@@ -7,5 +7,5 @@ dev:
 deploy:
 	npm run build;
 	git add -A;
-	git commit -m "Deploy";
+	git commit -m "Deploy" || git push heroku master;
 	git push heroku master;
