@@ -1,5 +1,6 @@
 {
   "name": "lolTFT_stats",
+  "version": "1.00",
   "scripts": {
     "start": "node server/server.js",
     "start-dev": "PORT=3000 && nodemon server/server.js",
