@@ -10,9 +10,6 @@ import {
 } from '../config/tableConfig';
 
 import {
-  items,
-} from '../config/items';
-import {
   parse,
 } from '../utils/utils';
 import {
@@ -22,10 +19,12 @@ import {
 require('../css/itemPage.css');
 
 type Props = {
-  itemList: any,
+  allItems: any,
+  baseItems: any,
   selected: Array<any>,
   selectItem: Function,
   removeItem: Function,
+  fetchItems: Function,
 }
 
 type State = {
@@ -38,7 +37,7 @@ const getCombinations = (props) => {
   } = props;
   let combinations = [];
   selected.forEach((item) => {
-    combinations = [...combinations, ...item.combinations];
+    combinations = [...combinations, ...item.connect];
   });
   return combinations;
 };
@@ -57,6 +56,10 @@ class ItemPage extends React.Component<Props, State> {
       };
     }
     return null;
+  }
+
+  componentDidMount() {
+    this.props.fetchItems();
   }
 
   onExpand = (panel) => (event, newExpanded) => {
@@ -80,22 +83,20 @@ class ItemPage extends React.Component<Props, State> {
   }
 
   renderCombinationList = (comboList) => comboList.map((combId) => {
-    const combinedItem = items[combId];
+    const combinedItem = this.props.allItems[combId];
     return combinedItem;
   })
 
   render() {
     const {
-      itemList,
+      baseItems,
       selected,
     } = this.props;
-
     const {
       combinations,
     } = this.state;
-
-    const list = Object.keys(itemList).map((key, index) => {
-      const item = itemList[key];
+    const list = Object.keys(baseItems).map((key, index) => {
+      const item = baseItems[key];
       return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
@@ -105,7 +106,7 @@ class ItemPage extends React.Component<Props, State> {
         >
           <img
             alt={item.logo.alt}
-            src={item.logo.src}
+            src={`${item.logo.src}`}
           />
           <p className="name">{item.name}</p>
         </div>
@@ -121,7 +122,7 @@ class ItemPage extends React.Component<Props, State> {
       >
         <img
           alt={item.logo.alt}
-          src={item.logo.src}
+          src={`${item.logo.src}`}
         />
       </div>
     ));
