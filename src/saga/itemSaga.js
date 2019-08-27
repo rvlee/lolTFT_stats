@@ -10,13 +10,16 @@ import {
   FETCH_ITEMS_SUCCESS,
   FETCH_ITEMS_FAILED,
 } from '../action/itemAction';
+import {
+  domain,
+} from '../config/api';
 
 function* fetchItems() {
   try {
     const {
       baseItems,
       items,
-    } = yield call(getRequest, 'http://localhost:3000/api/item', convertItemList);
+    } = yield call(getRequest, `${domain}api/item`, convertItemList);
     yield put({
       type: FETCH_ITEMS_SUCCESS,
       baseItems,

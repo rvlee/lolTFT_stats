@@ -24,7 +24,6 @@ type Props = {
   selected: Array<any>,
   selectItem: Function,
   removeItem: Function,
-  fetchItems: Function,
 }
 
 type State = {
@@ -56,10 +55,6 @@ class ItemPage extends React.Component<Props, State> {
       };
     }
     return null;
-  }
-
-  componentDidMount() {
-    this.props.fetchItems();
   }
 
   onExpand = (panel) => (event, newExpanded) => {
