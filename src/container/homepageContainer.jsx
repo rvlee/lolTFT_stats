@@ -5,9 +5,9 @@ import {
   bindActionCreators,
 } from 'redux';
 import {
-  addUser,
+  fetchUser,
 } from '../action/userAction';
-import Index from '../page/homepage';
+import Index from '../page/HomePage';
 
 const mapStateToProps = (state) => (
   {
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    addUser,
+    fetchUser,
   }, dispatch)
 );
 

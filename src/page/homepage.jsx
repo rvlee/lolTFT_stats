@@ -1,14 +1,11 @@
 /* @flow */
 
 import React from 'react';
-import {
-  domain,
-} from '../config/api';
 
 // css
 require('../css/homepage.css');
 
-type Props = { user: any, addUser: (user: any) => void };
+type Props = { user: any, fetchUser: (user: any) => void };
 
 type State = { val: string }
 
@@ -21,12 +18,7 @@ class Index extends React.Component<Props, State> {
     const {
       val,
     } = this.state;
-    fetch(`${domain}api/user?username=${val}`, {
-      mode: 'cors',
-      method: 'GET',
-    }).then((response) => response.json()).then((data) => {
-      this.props.addUser(data);
-    });
+    this.props.fetchUser(val);
   }
 
   onInputChange = (event: any) => {
@@ -43,7 +35,7 @@ class Index extends React.Component<Props, State> {
       user,
     } = this.props;
     return (
-      <div>
+      <div className="home">
         <div className="main">Index</div>
         <input value={val} onChange={this.onInputChange} />
         <button type="button" onClick={this.onSearch}>Search</button>

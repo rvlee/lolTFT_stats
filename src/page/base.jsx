@@ -11,10 +11,15 @@ import {
 require('../css/base.css');
 
 type Props = {
-  children: any
+  children: any,
+  fetchItems: () => {}
 };
 
 class Base extends React.Component<Props> {
+  componentDidMount() {
+    this.props.fetchItems();
+  }
+
   render() {
     const {
       children,

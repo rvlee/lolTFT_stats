@@ -1,5 +1,5 @@
 import {
-  ADD_USER,
+  FETCH_USER_SUCCESS,
 } from '../action/userAction';
 
 const intialState = {
@@ -10,9 +10,9 @@ const intialState = {
 
 const user = (state = intialState, action) => {
   switch (action.type) {
-  case ADD_USER:
+  case FETCH_USER_SUCCESS:
     return {
-      info: action.user,
+      info: action.info,
     };
   default:
     return state;

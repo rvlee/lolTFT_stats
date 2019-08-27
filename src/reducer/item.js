@@ -1,5 +1,6 @@
 import {
   FETCH_ITEMS_SUCCESS,
+  FETCH_ITEMS_FAILED,
   SELECT_ITEM,
   REMOVE_ITEM,
 } from '../action/itemAction';
@@ -22,6 +23,11 @@ const item = (state = intialState, action) => {
       ...state,
       baseItems: action.baseItems,
       allItems: action.items,
+    };
+  case FETCH_ITEMS_FAILED:
+    return {
+      ...state,
+      error: action.error,
     };
   case SELECT_ITEM:
     return {
