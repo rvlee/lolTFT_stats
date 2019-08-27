@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-  apiDomain,
+  domain,
 } from '../config/api';
 
 // css
@@ -21,7 +21,7 @@ class Index extends React.Component<Props, State> {
     const {
       val,
     } = this.state;
-    fetch(`${apiDomain}user?username=${val}`, {
+    fetch(`${domain}api/user?username=${val}`, {
       mode: 'cors',
       method: 'GET',
     }).then((response) => response.json()).then((data) => {
