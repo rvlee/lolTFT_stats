@@ -7,12 +7,14 @@ import {
 import {
   selectItem,
   removeItem,
+  fetchItems,
 } from '../action/itemAction';
 import ItemPage from '../page/itemPage';
 
 const mapStateToProps = (state) => (
   {
-    itemList: state.item.list,
+    baseItems: state.item.baseItems,
+    allItems: state.item.allItems,
     selected: state.item.selected,
   }
 );
@@ -21,6 +23,7 @@ const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
     selectItem,
     removeItem,
+    fetchItems,
   }, dispatch)
 );
 

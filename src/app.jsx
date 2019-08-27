@@ -10,7 +10,6 @@ import HomePage from './container/homepageContainer';
 import ItemPage from './container/itemPageContainer';
 import store from './store/store';
 
-
 const {
   browserHistory,
   IndexRoute,
@@ -19,6 +18,7 @@ const {
 } = require('react-router');
 
 type Props = {||};
+
 
 class App extends React.Component<Props> {
   render() {

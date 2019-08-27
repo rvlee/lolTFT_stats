@@ -1,17 +1,18 @@
 import React from 'react';
 import {
-  items,
-} from '../config/items';
+  connect,
+} from 'react-redux';
 
 const BaseTwoLogo = (props: any) => {
   const {
     base,
+    allItems,
   } = props;
   return (
     <div>
       {
         base.map((baseId, index) => {
-          const item = items[baseId];
+          const item = allItems[baseId];
           return (
             <img className="table-img" key={`${baseId}${index}`} src={item.logo.src} alt={item.logo.alt} />
           );
@@ -21,4 +22,10 @@ const BaseTwoLogo = (props: any) => {
   );
 };
 
-module.exports = BaseTwoLogo;
+const mapStateToProps = (state) => (
+  {
+    allItems: state.item.allItems,
+  }
+);
+
+module.exports = connect(mapStateToProps)(BaseTwoLogo);

@@ -1,7 +1,9 @@
 /* @flow */
 
 import React from 'react';
-import api from '../config/api';
+import {
+  apiDomain,
+} from '../config/api';
 
 // css
 require('../css/homepage.css');
@@ -19,7 +21,7 @@ class Index extends React.Component<Props, State> {
     const {
       val,
     } = this.state;
-    fetch(`${api.domain}user?username=${val}`, {
+    fetch(`${apiDomain}user?username=${val}`, {
       mode: 'cors',
       method: 'GET',
     }).then((response) => response.json()).then((data) => {
