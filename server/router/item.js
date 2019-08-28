@@ -6,8 +6,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
   Items.find({
 
-  }, (err, users) => {
-    res.send(users);
+  }, (err, items) => {
+    res.send(items);
   });
 });
 
