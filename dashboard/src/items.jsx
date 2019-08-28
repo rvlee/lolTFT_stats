@@ -32,6 +32,10 @@ class Items extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    this.getItemData();
+  }
+
+  getItemData() {
     axios.get('http://localhost:8001/items')
       .then((response) => {
         this.setState({
@@ -47,9 +51,13 @@ class Items extends React.Component<Props, State> {
     });
   };
 
-  handleClose = () => {
+  handleClose = (updateData: any) => {
     this.setState({
       modalOpen: false,
+    }, () => {
+      if (updateData) {
+        this.getItemData();
+      }
     });
   };
 
@@ -65,20 +73,26 @@ class Items extends React.Component<Props, State> {
           <Table>
             <TableHead>
               <TableRow>
+                <TableCell>ID</TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell>Description</TableCell>
+                <TableCell>Type</TableCell>
                 <TableCell>Icon</TableCell>
+                <TableCell>Combined</TableCell>
                 <TableCell>Edit</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {items.map((item) => (
                 <TableRow key={item.name}>
+                  <TableCell>{item.id}</TableCell>
                   <TableCell>
                     {item.name}
                   </TableCell>
                   <TableCell>{item.description}</TableCell>
+                  <TableCell>{item.type}</TableCell>
                   <TableCell><img src={item.logo.src} /></TableCell>
+                  <TableCell>{JSON.stringify(item.connect)}</TableCell>
                   <TableCell><button type="button" onClick={() => { this.handleOpen(item); }}>Edit</button></TableCell>
                 </TableRow>
               ))}
@@ -92,7 +106,7 @@ class Items extends React.Component<Props, State> {
           onClose={this.handleClose}
         >
           <div className="modal-container">
-            <ItemModal selected={this.state.selected} />
+            <ItemModal selected={this.state.selected} closeModal={this.handleClose} />
           </div>
         </Modal>
       </div>

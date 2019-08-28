@@ -6,12 +6,13 @@ import axios from 'axios';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import itemConfig from '../config/itemConfig';
 
-const R = require('ramda');
-
 type Props = {
-  selected: any
+  selected: any,
+  closeModal: Function,
 };
 
 type State = {
@@ -59,7 +60,6 @@ class ItemModal extends React.Component<Props, State> {
       file,
       item,
     } = this.state;
-    console.log(file);
     const formData = new FormData();
     formData.append('image', file);
     formData.append('item', JSON.stringify(this.parsePayload(item)));
@@ -67,7 +67,7 @@ class ItemModal extends React.Component<Props, State> {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
-    });
+    }).then(() => { this.props.closeModal(true); });
   }
 
   handleImageChange(e) {
@@ -126,6 +126,24 @@ class ItemModal extends React.Component<Props, State> {
         return (
           <div className="input-row">
             <img src={item[key]} />
+          </div>
+        );
+      case 'SELECT':
+        return (
+          <div className="input-row">
+            <InputLabel>{title}</InputLabel>
+            <Select
+              value={item[key]}
+              onChange={(event) => { this.handleInputChange(key, event); }}
+              inputProps={{
+                name: 'age',
+                id: 'age-simple',
+              }}
+            >
+              {
+                options.items.map((selectItem) => <MenuItem value={selectItem}>{selectItem}</MenuItem>)
+              }
+            </Select>
           </div>
         );
       default:

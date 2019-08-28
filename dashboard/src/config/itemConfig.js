@@ -30,6 +30,9 @@ export default [
   {
     key: 'type',
     title: 'TYPE',
-    type: 'TEXT',
+    type: 'SELECT',
+    options: {
+      items: ['BASE', 'COMBINED'],
+    },
   },
 ];
