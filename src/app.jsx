@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom';
 import {
   Provider,
 } from 'react-redux';
-import Base from './container/BaseContainer';
-import HomePage from './container/HomepageContainer';
-import ItemPage from './container/ItemPageContainer';
+import Base from './container/baseContainer';
+import HomePage from './container/homepageContainer';
+import ItemPage from './container/itemPageContainer';
 import store from './store/store';
 
 const {

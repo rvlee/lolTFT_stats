@@ -7,7 +7,7 @@ import {
 import {
   fetchItems,
 } from '../action/itemAction';
-import Base from '../page/Base';
+import Base from '../page/base';
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
