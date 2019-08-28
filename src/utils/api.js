@@ -1,7 +1,3 @@
-import {
-  imageDomain,
-} from '../config/api';
-
 // eslint-disable-next-line import/prefer-default-export
 export const getRequest = (url, cb) => fetch(url)
   .then((response) => response.json())
@@ -18,7 +14,7 @@ export const convertItemList = (data) => {
       ...item,
       logo: {
         ...item.logo,
-        src: `${imageDomain}${item.logo.src}`,
+        src: `${item.logo.src}`,
       },
     };
 
