@@ -7,7 +7,7 @@ import {
 import {
   fetchUser,
 } from '../action/userAction';
-import Index from '../page/HomePage';
+import Index from '../page/homePage';
 
 const mapStateToProps = (state) => (
   {
