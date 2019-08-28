@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 cloudinary.config({
-  ...secretConfig.cloudinary
+  ...secretConfig.cloudinary,
 });
 
 const updateItem = (item, cb) => {
