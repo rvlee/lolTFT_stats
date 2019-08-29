@@ -9,7 +9,7 @@ import {
   removeItem,
   fetchItems,
 } from '../action/itemAction';
-import ItemPage from '../page/itemPage';
+import ItemPage from '../page/ItemPage';
 
 const mapStateToProps = (state) => (
   {
