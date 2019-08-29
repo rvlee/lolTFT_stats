@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node server/server.js",
     "start-dev": "PORT=3000 && nodemon server/server.js",
-    "build": "webpack -p --config webpack.config.js --progress --profile --colors",
+    "build": "webpack -p --config webpack.config.js",
     "dev": "nf start",
     "test": "jest",
     "eslint": "eslint --ext .js --ext .jsx --fix .",
