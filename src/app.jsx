@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import {
   Provider,
 } from 'react-redux';
-import Base from './container/baseContainer';
+import Base from './container/BaseContainer';
 import HomePage from './container/HomepageContainer';
 import ItemPage from './container/ItemPageContainer';
 import store from './store/store';
