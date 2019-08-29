@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 module.exports = {
   cache: true,
@@ -43,6 +44,7 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
+    new CaseSensitivePathsPlugin(),
   ],
   optimization: {
     minimizer: [new TerserJSPlugin({

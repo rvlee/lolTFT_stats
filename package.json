@@ -1,10 +1,14 @@
 {
   "name": "lolTFT_stats",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.3",
+    "npm": "v6.9.0"
+  },
   "scripts": {
     "start": "node server/server.js",
     "start-dev": "PORT=3000 && nodemon server/server.js",
-    "build": "webpack -p --config webpack.config.js --progress --profile --colors",
+    "build": "webpack -p --config webpack.config.js",
     "dev": "nf start",
     "test": "jest",
     "eslint": "eslint --ext .js --ext .jsx --fix .",
@@ -40,6 +44,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "cloudinary": "^1.14.0",
     "connect-multiparty": "^2.2.0",
     "css-loader": "^2.1.1",
