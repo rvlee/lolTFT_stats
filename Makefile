@@ -5,7 +5,5 @@ dev:
 	sleep 5;
 	docker-compose up;
 deploy:
-	npm run build;
-	git add -A;
-	git commit -m "Deploy" || git push heroku master;
+	git commit --allow-empty -m "Deploy"
 	git push heroku master;
