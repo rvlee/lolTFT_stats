@@ -44,6 +44,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "cloudinary": "^1.14.0",
     "connect-multiparty": "^2.2.0",
     "css-loader": "^2.1.1",
