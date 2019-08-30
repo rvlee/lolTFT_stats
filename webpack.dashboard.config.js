@@ -1,21 +1,23 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // This file configures webpack to run on the production files
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 module.exports = {
   cache: true,
-  entry: './src/app.jsx',
+  entry: './dashboard/src/app.jsx',
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '',
+    path: path.join(__dirname, '/dashboard/dist'),
+    publicPath: '/dashboard',
     filename: 'js/app.js',
   },
   devServer: {
-    historyApiFallback: true,
+    contentBase: path.join(__dirname, '/dashboard/dist'),
+    compress: true,
+    port: 9000,
   },
   module: {
     rules: [
@@ -44,7 +46,6 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new CaseSensitivePathsPlugin(),
   ],
   optimization: {
     minimizer: [new TerserJSPlugin({

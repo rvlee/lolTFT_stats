@@ -11,6 +11,14 @@
 - Install docker: `brew cask install docker`
 
 ## Make File
-
 - `make build` this will build the docker container
+
 - `make dev` start the dev server
+
+- `npm run dev` this will start local client and server **
+
+## Local Dashboard
+
+- `npm run dashboard` this will start the dashboard 
+http://localhost:9000/dashboard
+

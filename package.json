@@ -1,12 +1,19 @@
 {
   "name": "lolTFT_stats",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.16.3",
+    "npm": "v6.9.0"
+  },
   "scripts": {
     "start": "node server/server.js",
     "start-dev": "PORT=3000 && nodemon server/server.js",
-    "build": "webpack -p --config webpack.config.js --progress --profile --colors",
+    "build": "webpack -p --config webpack.config.js",
     "dev": "nf start",
     "test": "jest",
-    "eslint": "eslint --ext .js --ext .jsx --fix ."
+    "eslint": "eslint --ext .js --ext .jsx --fix .",
+    "dashboard": "nf --procfile Procfile.dashboard start",
+    "dashboard-server": "nodemon ./dashboard/server/server.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.3.3",
@@ -16,6 +23,8 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "loglevel": "^1.4.1",
+    "mongodb": "^3.3.1",
+    "mongoose": "^5.6.11",
     "path": "^0.12.7",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
@@ -24,15 +33,20 @@
     "react-redux": "^6.0.1",
     "react-router": "^3.2.1",
     "redux": "^4.0.1",
+    "redux-saga": "^1.0.5",
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "axios": "^0.19.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "cloudinary": "^1.14.0",
+    "connect-multiparty": "^2.2.0",
     "css-loader": "^2.1.1",
     "del": "^3.0.0",
     "eslint": "^6.2.1",

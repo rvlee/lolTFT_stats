@@ -3,5 +3,6 @@ node_modules
 
 # secret no send!!!!!
 secret-config.js
+seed.js
 
 dist

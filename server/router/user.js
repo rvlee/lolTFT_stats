@@ -1,5 +1,6 @@
 const express = require('express');
 const serverUtils = require('../utils/serverUtils');
+const userUtils = require('../utils/user');
 
 const router = express.Router();
 
@@ -20,7 +21,10 @@ router.get('/', (req, res) => {
         if (err) {
           res.send(err);
         } else {
-          res.send(data2);
+          res.send({
+            accountId: userInfo.id,
+            ...userUtils.parseUser(JSON.parse(data2)),
+          });
         }
       });
     }
